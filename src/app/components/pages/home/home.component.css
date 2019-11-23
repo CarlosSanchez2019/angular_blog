@@ -1,0 +1,31 @@
+.container{
+
+    margin-top: 25px;
+    display: grid;
+    grid-template-columns: 24% 24% 24% 24%;
+    grid-column-gap: 10px;
+    grid-row-gap: 15px;
+    justify-content: center;
+}
+.container .post-card{
+    background: #444;
+    color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    font-size: 150%;
+}
+.container a{
+    cursor: pointer;
+    color: #fff;
+    text-decoration: none;
+}
+
+.post-card img{
+    height: 200px;
+    object-fit: contain;
+}
+.post-card p.content{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
