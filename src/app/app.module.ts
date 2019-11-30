@@ -15,6 +15,8 @@ import { AngularFirestoreModule } from '@angular/fire/firestore'
 import { AngularFireStorageModule, StorageBucket } from '@angular/fire/storage'
 import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -32,7 +34,9 @@ import { environment } from 'src/environments/environment';
     MaterialModule, 
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    AngularFireAuthModule,
+    ReactiveFormsModule
   ],
   providers: [
     {
