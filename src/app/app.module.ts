@@ -18,6 +18,7 @@ import { environment } from 'src/environments/environment';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ContainerAppComponent } from './components/pages/container-app/container-app.component';
+import { ModalComponent } from './shared/components/modal/modal.component';
 
 
 
@@ -27,7 +28,8 @@ import { ContainerAppComponent } from './components/pages/container-app/containe
     NewPostComponent,
     PostComponent,
     ToolbarComponent,
-    ContainerAppComponent
+    ContainerAppComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
@@ -41,6 +43,7 @@ import { ContainerAppComponent } from './components/pages/container-app/containe
     AngularFireAuthModule,
     ReactiveFormsModule
   ],
+  entryComponents:[ModalComponent],
   providers: [
     {
       provide: StorageBucket, useValue: 'gs://my-project-1557622561633.appspot.com'

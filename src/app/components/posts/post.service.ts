@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore'
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore'
 import { Observable } from 'rxjs'
 import { map } from 'rxjs/operators'
 import { PostI } from '../shared/models/post.interface';
@@ -9,10 +9,14 @@ import { PostI } from '../shared/models/post.interface';
 })
 export class PostService {
 
-  constructor(private afs: AngularFirestore ) { }
+  private postsCollection: AngularFirestoreCollection<PostI>;
+
+  constructor(private afs: AngularFirestore ) {
+    this.postsCollection = afs.collection<PostI>('post')
+  }
 
   public getAllPost(): Observable<PostI[]>{
-    return this.afs.collection('post')
+    return this.postsCollection
     .snapshotChanges()
     .pipe(
       map(actions => 
@@ -30,5 +34,14 @@ export class PostService {
     return this.afs.doc<PostI>(`post/${id}`).valueChanges()
   }
 
+  public deletePostById(post : PostI){
+    return this.postsCollection.doc(post.id)
+      .delete()
+  }
+
+  public editPostById(post: PostI){
+    return this.postsCollection.doc(post.id)
+      .update(post);
+  }
 
 }
